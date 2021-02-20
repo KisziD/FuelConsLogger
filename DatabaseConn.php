@@ -5,7 +5,7 @@
         public function Connect()
         {
             $User = 'epiz_27977918';
-            $Pass = 'LNowMo1V8zp9fih';
+            $Pass = '';
             $Database = 'epiz_27977918_MainDB';
             $Server = 'sql111.epizy.com';
         
