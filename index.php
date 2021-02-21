@@ -2,7 +2,7 @@
 	
 	include $_SERVER['DOCUMENT_ROOT'] . "/DatabaseConn.php";
 	$con = new DatabaseManager();
-	echo $con->Connect();
+	$con->ExecuteQuery("asd");
 
 	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
 		$uri = 'https://';
