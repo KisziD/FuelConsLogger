@@ -1,22 +1,24 @@
 <?php
 
-    class DatabaseManager
+class DatabaseManager
+{
+    public function Connect()
     {
-        public function Connect()
-        {
-            $User = 'epiz_27977918';
-            $Pass = '';
-            $Database = 'epiz_27977918_MainDB';
-            $Server = 'sql111.epizy.com';
-        
-            $conn = new mysqli($Server, $User, $Pass, $Database);
-        
-            if ($conn->connect_error) {
-                echo "hiba";
-                die("connection failed: ".$conn->connect_error);
-            }else{
-                echo "done";
-            }
+        $connfile = fopen("pass.txt", "r") or die("Cannot read database data");
+        $conndata = fread($connfile, filesize("pass.txt"));
+        $connsplit = explode("|", $conndata);
+        $Server = $connsplit[0];
+        $User = $connsplit[1];
+        $Pass= $connsplit[2];
+        $Database = $connsplit[3];
+        var_dump($connsplit);
+        $conn = new mysqli($Server, $User, $Pass, $Database);
+
+        if ($conn->connect_error) {
+            echo "hiba";
+            die("connection failed: " . $conn->connect_error);
+        } else {
+            echo "done";
         }
     }
-?>
+}
