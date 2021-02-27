@@ -1,0 +1,18 @@
+body{
+    background-color: blue;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#register{
+    background-color:yellowgreen;
+    margin-top: 20vh;
+    margin-left: 35vw;
+    width: 30vw;
+    height: 60vh;
+}
+#registerh1{
+    margin: auto;
+    font-size: 42px;
+}

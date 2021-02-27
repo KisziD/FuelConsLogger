@@ -26,7 +26,7 @@ class DatabaseManager
     public function ExecuteQuery($query)
     {
         $username = "test";
-        $conn->query("CREATE TABLE epiz_27977918_MainDB." . $username . " ( Type VARCHAR(10) NOT NULL , Value INT NOT NULL , timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ) ENGINE = MyISAM;");
+        $conn->query(/*userquery*/);
         echo "edone";
     }
 
