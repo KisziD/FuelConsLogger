@@ -8,7 +8,7 @@ body{
 	background-position: 0 2vh;
 	background-size: cover;
     margin: 0;
-    padding: 0;
+    padding: auto;
     padding-bottom: 5vh;
     border: 0;
     min-height: 100%;
