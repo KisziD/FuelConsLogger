@@ -1,42 +1,16 @@
-
-html{
-    size: 100%;
-}
-
+@import url('https://fonts.googleapis.com/css?family=Mukta');
 body{
-    background-image: url('/img/Gas_station.jpg');
-    background-color: rgb(60,60,60);
-	background-position:top;
-    background-repeat: no-repeat;
+  font-family: 'Mukta', sans-serif;
+	height:100vh;
+	min-height:550px;
+	background-image: url("/img/Gas_station.jpg");
+	background-repeat: no-repeat;
 	background-size:cover;
-    margin: 0;
-    padding: auto auto;
-    border: 0;
+	background-position:center;
+	position:relative;
+    overflow-y: hidden;
 }
-
-#login{
-    background-color: rgba(100, 100, 100, 0.6);
-	color: green;
-    margin: auto auto auto AUTO;
-    align-content: center;
-    padding-bottom: 1vh;
-    padding-left: 1vh;
-    width: fit-content;
-    height: fit-content;
-    font-size: 1vh;
-}
-
-#loginh1{
-    margin: auto;
-    font-size: 42px;
-}
-
-#test{
-    width: 100vw;
-    position: fixed;
-    left:0;
-    bottom:0;
-    background-color: aquamarine;
-    height: 5vh;
-    
+a{
+  text-decoration:none;
+  color:#ffffff;
 }
