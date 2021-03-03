@@ -18,6 +18,7 @@ if (!isset($_SESSION)) {
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
   </script>
   <script src="/Javascript/UserManagement.js"></script>
+  <script src="/Javascript/MainPageCalculator.js"></script>
   <link rel="stylesheet" href="/CSS/main.css">
 </head>
 
@@ -51,6 +52,32 @@ if (!isset($_SESSION)) {
       </div>
     </div>
   </nav>
+
+
+  <div>
+    <input type="number" name="liter" id="liter" placeholder="Liter">
+    <br>
+    <input type="number" name="km" id="km" placeholder="km">
+    <br>
+    <input type="text" name="result" id="result" placeholder="Result"   disabled>
+    <br>
+    <input type="button" value="Calculate" onclick="calculate()">
+  </div>
+
+  <div>
+  <input type="number" name="avg" id="avg" placeholder="Average Cons.">
+  <br>
+    <input type="number" name="km" id="roadkm" placeholder="km">
+    <br>
+    <input type="number" name="price" id="price" placeholder="Price/liter">
+    <br>
+    <input type="text" name="roadresult" id="roadresult" placeholder="Result"  disabled>
+    <br>
+    <input type="button" value="Calculate" onclick="calculateRoad()">
+
+
+
+  </div>
 
 </body>
 
