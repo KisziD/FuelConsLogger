@@ -59,8 +59,8 @@ function emailValidate() {
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            if (re.test(String(email).toLowerCase()) && this.responseText == "done0") {
+        if (this.readyState == 4 && this.status == 200) {            
+            if (re.test(String(email).toLowerCase()) && this.responseText == "0") {
                 emailInput.classList.remove("is-invalid");
                 emailInput.classList.add("is-valid");
                 emailValidity = true;

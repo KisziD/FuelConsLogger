@@ -1,3 +1,13 @@
+<?php
+if (isset($_SESSION)) {
+    if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+        include $_SERVER['DOCUMENT_ROOT'] . "/index.php";
+    }
+} else {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +24,6 @@
   </script>
   <script src="/Javascript/Register.js"></script>
   <script src="/Javascript/Login.js"></script>
-  <script src="/Javascript/UserManagement.js"></script>
   <link rel="stylesheet" href="/CSS/login.css">
 </head>
 
@@ -62,7 +71,7 @@
           <div class="invalid-feedback">Invalid email!</div>
         </span>
         <span>
-          <input type="password" placeholder="Password" id="loginpassword" class="form-control">
+          <input type="password" placeholder="Password" id="loginpassword" class="form-control" onkeypress="loginByTextbox(event)">
           <div class="invalid-feedback">Wrong password!</div>
         </span>
           <input type="button" value="Login" onclick="login()">

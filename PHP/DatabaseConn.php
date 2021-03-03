@@ -20,8 +20,6 @@ class DatabaseConn {
         if ($con->connect_error) {
             echo "hiba";
             die("connection failed: " . $con->connect_error);
-        } else {
-            echo "done";
         }
         return $con->query($query);
     }

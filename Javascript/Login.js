@@ -10,7 +10,7 @@ function lemailValidate() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            if (re.test(String(email).toLowerCase()) && this.responseText == "done1") {
+            if (re.test(String(email).toLowerCase()) && this.responseText == "1") {
                 emailInput.classList.remove("is-invalid");
                 emailInput.classList.add("is-valid");
                 emailValidity = true;
@@ -36,13 +36,12 @@ function login() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                if(this.responseText=="done1"){
-                    setEmail(email);
+                if(this.responseText=="1"){
                     window.location.href="home";
                 }else{
-                    console.log(this.responseText);
                     passwordInput.classList.remove("is-valid");
                     passwordInput.classList.add("is-invalid");
+                    passwordInput.focus();
                 }
             }
         };
@@ -52,4 +51,8 @@ function login() {
         xhttp.send(null);
 
     }
+}
+
+function loginByTextbox(e) {
+    if(e.keyCode === 13){login();}
 }
