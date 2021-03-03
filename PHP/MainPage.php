@@ -35,18 +35,17 @@ if (!isset($_SESSION)) {
           <?php
             if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 echo '<li class="nav-item"><a class="nav-link" aria-current="page" href="/logout">Logout</a></li>';
+                echo '<li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>';
             } else {
                 echo '<li class="nav-item"><a class="nav-link" aria-current="page" href="/login">Login</a></li>';
             }
             ?>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">something</a>
-          </li>
+          
         </ul>
         <?php
           if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
-            echo '<ul class="navbar-nav ml-auto"> <li><span class="navbar-text" id="username" onload="loadUsername()">Uname</span></li></ul>';
+            echo '<ul class="navbar-nav ml-auto"> <li><span class="navbar-text" id="username">Uname</span></li></ul>';
           }
           ?>
       </div>
