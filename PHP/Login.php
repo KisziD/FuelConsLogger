@@ -40,9 +40,6 @@ if (isset($_SESSION)) {
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Login</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">something</a>
-          </li>
         </ul>
       </div>
     </div>

@@ -18,3 +18,7 @@ Route::get("login", function () {
 Route::get("logout", function () {
     include $_SERVER['DOCUMENT_ROOT'] . "/PHP/Logout.php";
 });
+
+Route::get("dashboard", function () {
+    include $_SERVER['DOCUMENT_ROOT'] . "/PHP/Dashboard.php";
+});

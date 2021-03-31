@@ -86,7 +86,7 @@ function register() {
         var url = "/PHP/Register.php?name="+fullname+"&email="+email+"&password="+password;
         xhttp.open("GET", url, true);
         xhttp.send(null);
-        window.location.href = 'home';
+        window.location.href = 'dashboard';
     }
     
 }

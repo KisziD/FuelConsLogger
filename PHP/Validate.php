@@ -4,7 +4,7 @@ session_start();
     $con= new DatabaseConn();
 
     if (isset($_GET["email"])&&!isset($_GET["password"])) {
-        $query = "SELECT Email FROM Users WHERE Email='". $_GET["email"]."'";
+        $query = "SELECT email FROM users WHERE email='". $_GET["email"]."'";
         $result = $con->execute($query);
 
         if($result->num_rows > 0){
@@ -15,12 +15,12 @@ session_start();
     }
 
     if(isset($_GET["password"])&&isset($_GET["email"])){
-        $query = "SELECT Password FROM Users WHERE Email='". $_GET["email"]."'";
+        $query = "SELECT Password FROM users WHERE email='". $_GET["email"]."'";
         $result = $con->execute($query);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                if ($row["Password"] == $_GET["password"]) {
+                if ($row["password"] == $_GET["password"]) {
                    echo "1";
                     $_SESSION["loggedin"]=true;
                     $_SESSION["email"]=$_GET["email"];
@@ -36,11 +36,11 @@ session_start();
 
     if (isset($_GET["loggedin"])) {
         if(isset($_SESSION["loggedin"])&&$_SESSION["loggedin"]==true){
-            $query  = "SELECT Name FROM Users WHERE Email='".$_SESSION["email"]."';";
+            $query  = "SELECT Name FROM users WHERE email='".$_SESSION["email"]."';";
             $result = $con->execute($query);
             if($result->num_rows>0){
                 while ($row=$result->fetch_assoc()) {
-                    echo $row["Name"];
+                    echo $row["full_name"];
                 }
             }
         }else{
