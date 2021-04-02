@@ -22,3 +22,6 @@ Route::get("logout", function () {
 Route::get("dashboard", function () {
     include $_SERVER['DOCUMENT_ROOT'] . "/PHP/Dashboard.php";
 });
+Route::get("newcar", function () {
+    include $_SERVER['DOCUMENT_ROOT'] . "/PHP/Addcar.php";
+});
