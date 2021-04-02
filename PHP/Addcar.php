@@ -1,6 +1,9 @@
 <?php
-if (!isset($_SESSION) || !$_SESSION["loggedin"]) {
+/*if (!isset($_SESSION) || !$_SESSION["loggedin"]) {
     include "index.php";
+}*/
+if (!isset($_SESSION)) {
+    session_start();
 }
 ?>
 <!DOCTYPE html>
@@ -76,6 +79,10 @@ if (!isset($_SESSION) || !$_SESSION["loggedin"]) {
             <input type="text" placeholder="Model Year" id="myear" class="form-control" onkeyup="yearValidate()">
             <div class="invalid-feedback">The Model Year must be a valid year!</div>
           </span>
+          <span>
+            <input type="date" placeholder="MOT expiration date" id="mot" class="form-control" onchange="motValidate()">
+            <div class="invalid-feedback">The Model Year must be a valid year!</div>
+          </span>
           <input type="button" value="Add" onclick="add()">
         </form>
       </div>
@@ -87,3 +94,18 @@ if (!isset($_SESSION) || !$_SESSION["loggedin"]) {
 </body>
 
 </html>
+
+<?php
+
+    if(isset($_GET["type"])){
+        require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/DatabaseConn.php";
+        $con = new DatabaseConn();
+
+        $query = "INSERT INTO `cars` (`rendszam`, `owner`, `type`, `fuel`,`model_year`,`mot`,`odometer`) VALUES ('" . $_GET["nplate"] . "', '" . $_SESSION["uid"] . "', '" . $_GET["type"] . "','" . $_GET["ftype"] . "','" . $_GET["myear"] . "','" . $_GET["mot"] . "', '0')";
+        $con->execute($query);
+        $_SESSION["cars"]=$_SESSION["cars"]+1;
+        $query = "UPDATE `users` SET `num_cars` = ".$_SESSION["cars"]." WHERE `id` =".$_SESSION["uid"];
+        echo $con->execute($query);
+    }
+
+?>

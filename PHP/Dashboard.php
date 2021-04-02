@@ -59,9 +59,8 @@ if (!isset($_SESSION)) {
       <div id="sidebar-wrapper">
          <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
              <?php
-                $num = $_SESSION["cars"];
-                for($i=0; $i< $num; $i++)
-                echo  '<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fas fa-car"></i></span>Car#'. $i+1 . '</a></li>';
+                foreach($_SESSION["types"] as &$type)
+                echo  '<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fas fa-car"></i></span> '. $type . ' </a></li>';
                 
              ?>
             <li>

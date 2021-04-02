@@ -45,6 +45,14 @@ session_start();
                     $_SESSION["uid"] = $row["id"];
                 }
             }
+            $_SESSION["types"] =array();
+            $query  = "SELECT type FROM cars WHERE owner='".$_SESSION["uid"]."';";
+            $result = $con->execute($query);
+            if($result->num_rows>0){
+                while ($row=$result->fetch_assoc()) {
+                   array_push($_SESSION["types"], $row["type"]);
+                }
+            }
         }else{
             echo "false";
         }

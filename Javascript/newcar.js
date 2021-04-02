@@ -4,7 +4,7 @@ var nplateValidity = false;
 var fueltype;
 var year;
 
-function nameValidate() {
+function typeValidate() {
     var typeInput = document.getElementById("type");
     type = typeInput.value;
 
@@ -69,9 +69,11 @@ function fuelValidate(){
     if(ftype.toLowerCase().trim()=="diesel"||ftype.toLowerCase().trim()=="petrol"||ftype.toLowerCase().trim()=="gas"){
         ftypeInput.classList.remove("is-invalid");
         ftypeInput.classList.add("is-valid");
+        return true;
     }else{
         ftypeInput.classList.remove("is-valid");
         ftypeInput.classList.add("is-invalid");
+        return false;
     }    
 }
 
@@ -80,6 +82,49 @@ function yearValidate(){
     year = yearInput.value;
     const re = /[0-9]{4}$/
     if(re.test(String(year).toLowerCase())){
-        
+        if(parseInt(year)>=1886 && parseInt(year)<=new Date().getFullYear()){
+            yearInput.classList.remove("is-invalid");
+            yearInput.classList.add("is-valid");
+            return true;
+        }else{
+            yearInput.classList.remove("is-valid");
+            yearInput.classList.add("is-invalid");
+            return false;
+        }
+    }else{
+        yearInput.classList.remove("is-valid");
+        yearInput.classList.add("is-invalid");
+        return false;
+    }
+}
+
+function motValidate(){
+    var motInput=document.getElementById("mot");
+    mot=motInput.value;
+    if(mot!=""){
+        motInput.classList.remove("is-invalid");
+        motInput.classList.add("is-valid");
+        return true;
+    }else{
+        motInput.classList.remove("is-valid");
+        motInput.classList.add("is-invalid");
+        return false;
+    }
+}
+
+function add(){
+    if (typeValidate()&&fuelValidate()&&yearValidate()&&nplateValidity) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {            
+               console.log(this.responseText);
+            }
+        };
+
+        var url = "/PHP/Addcar.php?type="+type+"&ftype="+ftype+"&nplate="+nplate+"&myear="+year+"&mot="+mot;
+        console.log(url);
+        xhttp.open("GET", url, true);
+        xhttp.send(null);
+        window.location.href = 'dashboard';
     }
 }
