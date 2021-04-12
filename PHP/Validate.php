@@ -45,12 +45,14 @@ session_start();
                     $_SESSION["uid"] = $row["id"];
                 }
             }
-            $_SESSION["types"] =array();
-            $query  = "SELECT type FROM cars WHERE owner='".$_SESSION["uid"]."';";
+            $_SESSION["types"] = array();
+            $_SESSION["nplates"] = array();
+            $query  = "SELECT type, rendszam FROM cars WHERE owner='".$_SESSION["uid"]."';";
             $result = $con->execute($query);
             if($result->num_rows>0){
                 while ($row=$result->fetch_assoc()) {
                    array_push($_SESSION["types"], $row["type"]);
+                   array_push($_SESSION["nplates"], $row["rendszam"]);
                 }
             }
         }else{
@@ -67,5 +69,25 @@ session_start();
         }else{
             echo "0";
         }
+    }
+
+    if(isset($_GET["checkplate"])){
+        $query = "SELECT concat(rendszam,'|',type,'|',fuel,'|',model_year,'|',mot,'|',odometer) as data from cars where rendszam like '".$_GET["checkplate"]."'";
+        $result = $con->execute($query);
+        echo $result->fetch_assoc()["data"];
+    }
+
+    if(isset($_GET["checkodo"])){
+        $query  ="SELECT odometer from cars where rendszam like '".$_GET["checkodo"]."'";
+        $result = $con->execute($query);
+
+        echo $result->fetch_assoc()["odometer"];
+    }
+
+    if(isset($_GET["newlog"])){
+        $query = "INSERT INTO logged_refuels (`rendszam`,`fuel`,`litres`,`priceperlitre`,`paid`,`odometer`,`log_date`) values ('".$_GET["newlog"]."', '".$_GET["ftype"]."', cast('".$_GET["litres"]."' as real), cast('".$_GET["ppl"]."' as real), cast('".$_GET["paid"]."' as real), cast('".$_GET["odo"]."' as int), getdate())";
+        echo $con->execute($query);
+        $query = "UPDATE cars odometer='".$_GET["odo"]."' WHERE rendszam like '".$_GET["newlog"]."'";
+        echo $con->execute($query);
     }
 ?>

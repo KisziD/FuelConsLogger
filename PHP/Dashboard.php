@@ -24,11 +24,12 @@ if (!isset($_SESSION)) {
  
   <script src="/Javascript/UserManagement.js"></script>
   <script src="/Javascript/carloader.js"></script>
+  <script src="/Javascript/logger.js"></script>
   <link rel="stylesheet" href="/CSS/main.css">
   <link rel="stylesheet" href="/CSS/dash.css">
 </head>
 
-<body>
+<body onload="loadcar('<?php echo $_SESSION['nplates'][0]; ?>')">
 <div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -58,9 +59,10 @@ if (!isset($_SESSION)) {
    <div id="wrapper" class="toggled-2">
       <div id="sidebar-wrapper">
          <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+           <li> <a href="" class="sidebar-toggler"><span class="fa-stack fa-lg pull-left"><i class="fas fa-bars"></i></span></a></li>
              <?php
-                foreach($_SESSION["types"] as &$type)
-                echo  '<li> <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fas fa-car"></i></span> '. $type . ' </a></li>';
+                foreach($_SESSION["types"] as $key => &$type)
+                echo  '<li> <a href="#" onclick="loadcar(\''.$_SESSION["nplates"][$key].'\')"><span class="fa-stack fa-lg pull-left"><i class="fas fa-car"></i></span> '. $type . ' </a></li>';
                 
              ?>
             <li>
@@ -71,21 +73,34 @@ if (!isset($_SESSION)) {
 
       <div id="page-content-wrapper">
          <div class="container-fluid xyz">
+            <div id="carinfo">
+              <div id="cartype"></div>    <div id="caryear"></div>   <div id="carnplate"></div>   <div id="carfuel"></div>   <div id="carmot"></div>   <div id="carodo"></div>           
+            </div>
+            <div id="addrefuel">
 
-            
-           
+              
+              <form action="" class="needs-validation" novalidate>
+          <input type="number" name="liter" id="liter" placeholder="Litres" class="form-control" onchange="litresValidate()" onkeyup="litresValidate()" min="0">
+          <span>
+            <input type="number" name="ppl" id="ppl" placeholder="HUF/Litre" class="form-control" onkeyup="pplValidate()" min="0">
+            <div class="invalid-feedback">The Number plate is either in use or incorrect!</div>
+          </span>
+          <span>
+            <input type="number" name="paid" id="paid" placeholder="Paid" class="form-control" onkeyup="paidValidate()" min="0">
+            <div class="invalid-feedback">The Number plate is either in use or incorrect!</div>
+          </span>
+          <span>
+            <input type="number" name="odo" id="odo" placeholder="Odometer" class="form-control" onkeyup="odoValidate()">
+            <div class="invalid-feedback">Fuel type must be <b>Petrol, Diesel</b> or <b>Gas</b>!</div>
+          </span>
+          <input type="button" value="Add" onclick="addlog()">
+        </form>
+            </div>           
          </div>
       </div>
    </div>
 
 <script src="/Javascript/dash.js"></script>
-
-  <div id= >
-  
-  </div>
-  
-</div>
-
 
 </body>
 

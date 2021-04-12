@@ -1,8 +1,8 @@
-$(".navbar-toggler").click(function(e) {
+$(".sidebar-toggler").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
  });
- $(".navbar-toggler").click(function(e) {
+ $(".sidebar-toggler").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled-2");
     $('#menu ul').hide();

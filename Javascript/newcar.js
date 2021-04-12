@@ -115,12 +115,7 @@ function motValidate(){
 function add(){
     if (typeValidate()&&fuelValidate()&&yearValidate()&&nplateValidity) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {            
-               console.log(this.responseText);
-            }
-        };
-
+        
         var url = "/PHP/Addcar.php?type="+type+"&ftype="+ftype+"&nplate="+nplate+"&myear="+year+"&mot="+mot;
         console.log(url);
         xhttp.open("GET", url, true);
