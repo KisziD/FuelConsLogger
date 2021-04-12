@@ -100,7 +100,7 @@ if (!isset($_SESSION)) {
          </div>
       
             <div id="canvas">
-            <canvas id="graph"></canvas>
+            <canvas id="graph" style="height: 370px; width: 80%;"></canvas>
             </div>
           </div>  
    </div>

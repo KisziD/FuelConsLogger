@@ -180,11 +180,12 @@ input[type="button"] {
 }
  
 #canvas{
-   max-height: 80vh;
+   max-height: 100vh;
    margin-top: 1vh;
    background: white;
 }
 
 #graph{
-   height: 25vh;
+   height: 370px;
+   width: 80%;
 }
