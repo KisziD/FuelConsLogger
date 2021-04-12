@@ -179,5 +179,12 @@ input[type="button"] {
    cursor:pointer;
 }
  
+#canvas{
+   max-height: 80vh;
+   margin-top: 1vh;
+   background: white;
+}
 
- 
+#graph{
+   height: 25vh;
+}

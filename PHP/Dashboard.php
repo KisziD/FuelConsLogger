@@ -20,6 +20,7 @@ if (!isset($_SESSION)) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.0/chart.js"></script>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
  
   <script src="/Javascript/UserManagement.js"></script>
@@ -97,8 +98,13 @@ if (!isset($_SESSION)) {
         </form>
             </div>           
          </div>
-      </div>
+      
+            <div id="canvas">
+            <canvas id="graph"></canvas>
+            </div>
+          </div>  
    </div>
+
 
 <script src="/Javascript/dash.js"></script>
 

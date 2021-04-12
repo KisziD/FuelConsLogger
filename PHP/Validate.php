@@ -85,9 +85,10 @@ session_start();
     }
 
     if(isset($_GET["newlog"])){
-        $query = "INSERT INTO logged_refuels (`rendszam`,`fuel`,`litres`,`priceperlitre`,`paid`,`odometer`,`log_date`) values ('".$_GET["newlog"]."', '".$_GET["ftype"]."', cast('".$_GET["litres"]."' as real), cast('".$_GET["ppl"]."' as real), cast('".$_GET["paid"]."' as real), cast('".$_GET["odo"]."' as int), getdate())";
-        echo $con->execute($query);
-        $query = "UPDATE cars odometer='".$_GET["odo"]."' WHERE rendszam like '".$_GET["newlog"]."'";
+        $date = getdate();
+        $query = "INSERT INTO `logged_refuels` (`rendszam`,`fuel`,`litres`,`priceperlitre`,`paid`,`odometer`,`log_date`) VALUES ('".$_GET["newlog"]."', '".$_GET["ftype"]."', '".$_GET["litres"]."','".$_GET["ppl"]."' ,'".$_GET["paid"]."','".$_GET["odo"]."' , '".$date["year"]."-".$date["mon"]."-".$date["mday"]."')";
+       $con->execute($query);
+        $query = "UPDATE `cars` set `odometer`='" .$_GET["odo"]."' WHERE `rendszam` like '".$_GET["newlog"]."'"; echo $query;
         echo $con->execute($query);
     }
 ?>

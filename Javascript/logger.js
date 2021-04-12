@@ -90,6 +90,6 @@ function addlog(){
         console.log(url);
         xhttp.open("GET", url, true);
         xhttp.send(null);
-         //window.location.href = 'dashboard'; //todo call regraph();
+        window.location.href = 'dashboard'; //todo call regraph();
     }
 }
