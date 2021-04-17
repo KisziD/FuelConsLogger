@@ -25,3 +25,4 @@ Route::get("dashboard", function () {
 Route::get("newcar", function () {
     include $_SERVER['DOCUMENT_ROOT'] . "/PHP/Addcar.php";
 });
+//Raul
