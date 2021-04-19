@@ -21,3 +21,7 @@ a{
 	align-items: stretch;
 
 }
+
+.bg-background{
+    background-color: rgba(73, 4, 4, 0.9);
+}

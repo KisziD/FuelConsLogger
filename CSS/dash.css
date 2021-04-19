@@ -26,7 +26,7 @@
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #000;
+    background: rgba(73, 4, 4, 0.9);
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -69,7 +69,7 @@
  }
  
  .sidebar-nav li {
-    text-indent: 15px;
+    text-indent: 5px;
     line-height: 40px;
  }
  
@@ -83,7 +83,7 @@
      padding-left: 0;
     text-decoration: none;
     color: #fff;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.5);
     border-left: red 2px solid;
  }
  
@@ -170,7 +170,7 @@ input[type="button"] {
    max-width: 75px;
    width: 100%;
    max-height: 35px;
-   background: #1d461a;
+   background: #490303;
    color: #f9f9f9;
    border: none;
    padding: 5px;
@@ -188,4 +188,8 @@ input[type="button"] {
 #graph{
    height: 370px;
    width: 80%;
+}
+
+.bg-background{
+   background-color: rgba(73, 4, 4, 0.9);
 }

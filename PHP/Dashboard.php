@@ -32,7 +32,7 @@ if (!isset($_SESSION)) {
 
 <body onload="loadcar('<?php echo $_SESSION['nplates'][0]; ?>')">
 <div>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-background">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navtoggler"
         aria-controls="navtoggler" aria-expanded="false" aria-label="Toggle navigation">
