@@ -83,7 +83,7 @@ if (!isset($_SESSION)) {
               <th><div id="carfuel"></div></th>   <th><div id="carmot"></div></th>   <th><div id="carodo"></div></th>
               </tr>
               <tr>
-              <th><div id="avgconsumption"></div></th>   <th><div id="avtravel"></div></th>    <th><div id="ftkm"></div></th>
+              <th><div id="avgconsumption"></div></th>   <th><div id="avgtravel"></div></th>    <th><div id="ftkm"></div></th>
               </tr>
             </table>           
             </div>
