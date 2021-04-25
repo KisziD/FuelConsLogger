@@ -75,26 +75,50 @@ if (!isset($_SESSION)) {
       <div id="page-content-wrapper">
          <div class="container-fluid xyz">
             <div id="carinfo">
-              <div id="cartype"></div>    <div id="caryear"></div>   <div id="carnplate"></div>   <div id="carfuel"></div>   <div id="carmot"></div>   <div id="carodo"></div>           
+            <table style="width: 100%">
+              <tr>
+              <th><div id="cartype"></div></th>    <th><div id="caryear"></div></th>   <th><div id="carnplate"></div></th>
+              </tr>
+              <tr>
+              <th><div id="carfuel"></div></th>   <th><div id="carmot"></div></th>   <th><div id="carodo"></div></th>
+              </tr>
+              <tr>
+              <th><div id="avgconsumption"></div></th>   <th><div id="avgtravel"></div></th>    <th><div id="ftkm"></div></th>
+              </tr>
+            </table>           
             </div>
             <div id="addrefuel">
 
               
               <form action="" class="needs-validation" novalidate>
+              <table style="width: 100%">
+              <tr>
+              <th>
           <input type="number" name="liter" id="liter" placeholder="Litres" class="form-control" onchange="litresValidate()" onkeyup="litresValidate()" min="0">
+          </th>
+          <th>
           <span>
             <input type="number" name="ppl" id="ppl" placeholder="HUF/Litre" class="form-control" onkeyup="pplValidate()" min="0">
             <div class="invalid-feedback">The Number plate is either in use or incorrect!</div>
           </span>
+          </th>
+          <th>
           <span>
             <input type="number" name="paid" id="paid" placeholder="Paid" class="form-control" onkeyup="paidValidate()" min="0">
             <div class="invalid-feedback">The Number plate is either in use or incorrect!</div>
           </span>
+          </th>
+          <th>
           <span>
             <input type="number" name="odo" id="odo" placeholder="Odometer" class="form-control" onkeyup="odoValidate()">
             <div class="invalid-feedback">Fuel type must be <b>Petrol, Diesel</b> or <b>Gas</b>!</div>
           </span>
+          </th>
+          <th>
           <input type="button" value="Add" onclick="addlog()">
+          </th>
+          </tr>
+          </table>
         </form>
             </div>           
          </div>
