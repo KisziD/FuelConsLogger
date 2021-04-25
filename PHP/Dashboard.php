@@ -22,7 +22,7 @@ if (!isset($_SESSION)) {
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.0/chart.js"></script>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
- 
+
   <script src="/Javascript/UserManagement.js"></script>
   <script src="/Javascript/carloader.js"></script>
   <script src="/Javascript/logger.js"></script>
@@ -42,18 +42,18 @@ if (!isset($_SESSION)) {
       <div class="collapse navbar-collapse" id="navtoggler">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <?php
-            if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
-                echo '<li class="nav-item"><a class="nav-link" aria-current="page" href="/logout">Logout</a></li>';
-            } else {
-                echo '<li class="nav-item"><a class="nav-link" aria-current="page" href="/login">Login</a></li>';
-            }
-            ?>          
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+    echo '<li class="nav-item"><a class="nav-link" aria-current="page" href="/logout">Logout</a></li>';
+} else {
+    echo '<li class="nav-item"><a class="nav-link" aria-current="page" href="/login">Login</a></li>';
+}
+?>
         </ul>
         <?php
-          if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
-              echo '<ul class="navbar-nav ml-auto"> <li><span class="navbar-text" id="username">Uname</span></li></ul>';
-            }
-            ?>
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+    echo '<ul class="navbar-nav ml-auto"> <li><span class="navbar-text" id="username">Uname</span></li></ul>';
+}
+?>
       </div>
     </div>
   </nav>
@@ -62,10 +62,11 @@ if (!isset($_SESSION)) {
          <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
            <li> <a href="" class="sidebar-toggler"><span class="fa-stack fa-lg pull-left"><i class="fas fa-bars"></i></span></a></li>
              <?php
-                foreach($_SESSION["types"] as $key => &$type)
-                echo  '<li> <a href="#" onclick="loadcar(\''.$_SESSION["nplates"][$key].'\')"><span class="fa-stack fa-lg pull-left"><i class="fas fa-car"></i></span> '. $type . ' </a></li>';
-                
-             ?>
+foreach ($_SESSION["types"] as $key => &$type) {
+    echo '<li> <a href="#" onclick="loadcar(\'' . $_SESSION["nplates"][$key] . '\')"><span class="fa-stack fa-lg pull-left"><i class="fas fa-car"></i></span> ' . $type . ' </a></li>';
+}
+
+?>
             <li>
                <a href="/newcar"><span class="fa-stack fa-lg pull-left"><i class="fas fa-plus-circle"></i></span>Add new car</a>
             </li>
@@ -85,11 +86,9 @@ if (!isset($_SESSION)) {
               <tr>
               <th><div id="avgconsumption"></div></th>   <th><div id="avgtravel"></div></th>    <th><div id="ftkm"></div></th>
               </tr>
-            </table>           
+            </table>
             </div>
             <div id="addrefuel">
-
-              
               <form action="" class="needs-validation" novalidate>
               <table style="width: 100%">
               <tr>
@@ -120,13 +119,13 @@ if (!isset($_SESSION)) {
           </tr>
           </table>
         </form>
-            </div>           
+            </div>
          </div>
-      
+
             <div id="canvas">
             <canvas id="graph" style="height: 370px; width: 80%;"></canvas>
             </div>
-          </div>  
+          </div>
    </div>
 
 
