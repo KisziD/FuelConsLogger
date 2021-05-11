@@ -35,23 +35,19 @@ var ctx = document.getElementById('graph');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Dates'],
         datasets: [{
     label: 'AVG cons.',
-    data: [65, 59, 80, 801, 56, 55, 40],
+    data: [],
     fill: false,
     borderColor: 'rgb(75, 192, 192)',
     tension: 0
-  },{  
-  label: 'AV1  G cons.',
-  data: [65, 59, 80, 81, 5, 5, 0],
-  fill: false,
-  borderColor: 'rgb(75, 200, 102)',
-  tension: 0}]
+  }]
     },
     options: {
         scales: {
             y: {
+               max: 10,
                 beginAtZero: true
             }
         }

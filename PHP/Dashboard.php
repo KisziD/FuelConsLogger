@@ -66,10 +66,12 @@ foreach ($_SESSION["types"] as $key => &$type) {
     echo '<li> <a href="#" onclick="loadcar(\'' . $_SESSION["nplates"][$key] . '\')"><span class="fa-stack fa-lg pull-left"><i class="fas fa-car"></i></span> ' . $type . ' </a></li>';
 }
 
+    if($_SESSION["cars"]<5){
+        echo '<li><a href="/newcar"><span class="fa-stack fa-lg pull-left"><i class="fas fa-plus-circle"></i></span>Add new car</a></li>';
+    }
+
 ?>
-            <li>
-               <a href="/newcar"><span class="fa-stack fa-lg pull-left"><i class="fas fa-plus-circle"></i></span>Add new car</a>
-            </li>
+            
          </ul>
       </div>
 

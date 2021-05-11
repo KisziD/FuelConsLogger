@@ -104,6 +104,8 @@ if (!isset($_SESSION)) {
         $query = "INSERT INTO `cars` (`rendszam`, `owner`, `type`, `fuel`,`model_year`,`mot`,`odometer`) VALUES ('" . $_GET["nplate"] . "', '" . $_SESSION["uid"] . "', '" . $_GET["type"] . "','" . $_GET["ftype"] . "','" . $_GET["myear"] . "','" . $_GET["mot"] . "', '0')";
         $con->execute($query);
         $_SESSION["cars"]=$_SESSION["cars"]+1;
+        $_SESSION["nplates"][$_SESSION["cars"]-1] = $_GET["nplate"];
+        $_SESSION["types"][$_SESSION["cars"]-1] = $_GET["type"];
         $query = "UPDATE `users` SET `num_cars` = ".$_SESSION["cars"]." WHERE `id` =".$_SESSION["uid"];
         echo $con->execute($query);
     }
