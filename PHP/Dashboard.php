@@ -77,13 +77,13 @@ if (!isset($_SESSION)) {
             <div id="carinfo">
             <table style="width: 100%">
               <tr>
-              <th><div id="cartype"></div></th>    <th><div id="caryear"></div></th>   <th><div id="carnplate"></div></th>
+              <th><div><i class="fas fa-tachometer-alt" id="cartype"></i></div></th>    <th><div><i class="fas fa-calendar-alt" id="caryear"></i></div></th>   <th><div><i class="fas fa-id-card" id="carnplate"></i></div></th>
               </tr>
               <tr>
-              <th><div id="carfuel"></div></th>   <th><div id="carmot"></div></th>   <th><div id="carodo"></div></th>
+              <th><div><i class="fas fa-gas-pump" id="carfuel"></i></div></th>   <th><div><i class="fas fa-calendar-check" id="carmot"></i></div></th>   <th><div><i class="fas fa-tachometer-alt" id="carodo"></i></div></th>
               </tr>
               <tr>
-              <th><div id="avgconsumption"></div></th>   <th><div id="avgtravel"></div></th>    <th><div id="ftkm"></div></th>
+              <th><div><i class="fas fa-tint" id="avgconsumption"></i></div></th>   <th><div><i class="fas fa-route" id="avgtravel"></i></div></th>    <th><div><i class="fas fa-dollar-sign" id="ftkm"></i></div></th>
               </tr>
             </table>           
             </div>
