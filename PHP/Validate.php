@@ -86,9 +86,25 @@ session_start();
 
     if(isset($_GET["newlog"])){
         $date = getdate();
-        $query = "INSERT INTO `logged_refuels` (`rendszam`,`fuel`,`litres`,`priceperlitre`,`paid`,`odometer`,`log_date`) VALUES ('".$_GET["newlog"]."', '".$_GET["ftype"]."', '".$_GET["litres"]."','".$_GET["ppl"]."' ,'".$_GET["paid"]."','".$_GET["odo"]."' , '".$date["year"]."-".$date["mon"]."-".$date["mday"]."')";
+        $query = "INSERT INTO `logged_refuels` (`rendszam`,`fuel`,`litres`,`priceperlitre`,`paid`,`odometer`,`log_date`,`filling`) VALUES ('".$_GET["newlog"]."', '".$_GET["ftype"]."', '".$_GET["litres"]."','".$_GET["ppl"]."' ,'".$_GET["paid"]."','".$_GET["odo"]."' , '".$date["year"]."-".$date["mon"]."-".$date["mday"]."',".$_GET["fill"].")";
        $con->execute($query);
         $query = "UPDATE `cars` set `odometer`='" .$_GET["odo"]."' WHERE `rendszam` like '".$_GET["newlog"]."'"; echo $query;
         echo $con->execute($query);
+    }
+
+    if(isset($_GET["getplatedata"])){
+        $arr=[];
+        $query = "SELECT concat(litres,';',priceperlitre,';',paid,';',odometer,';', log_date,';',filling) as data from logged_refuels where rendszam like '".$_GET["getplatedata"]."'";
+        $result = $con->execute($query);
+        if($result->num_rows>0){
+            while ($row=$result->fetch_assoc()) {
+                array_push($arr, $row["data"]);
+            }
+        }
+        $ret="";
+        foreach($arr as $elem){
+            $ret= $ret.$elem."|";
+        }
+        echo $ret;
     }
 ?>

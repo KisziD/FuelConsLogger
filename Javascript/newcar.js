@@ -117,7 +117,6 @@ function add(){
         var xhttp = new XMLHttpRequest();
         
         var url = "/PHP/Addcar.php?type="+type+"&ftype="+ftype+"&nplate="+nplate+"&myear="+year+"&mot="+mot;
-        console.log(url);
         xhttp.open("GET", url, true);
         xhttp.send(null);
         window.location.href = 'dashboard';

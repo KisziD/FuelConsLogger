@@ -80,7 +80,6 @@ function emailValidate() {
 
 
 function register() {  
-    console.log(nameValidate()&&passwordValidate()&&passwordConfirmationValidate()&&emailValidity);
     if (nameValidate()&&passwordValidate()&&passwordConfirmationValidate()&&emailValidity) {
         var xhttp = new XMLHttpRequest();
         var url = "/PHP/Register.php?name="+fullname+"&email="+email+"&password="+password;

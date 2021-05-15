@@ -13,7 +13,9 @@ function loadcar(nplate){
             document.getElementById("avgconsumption").innerHTML="  "+"-.-";
             document.getElementById("avgtravel").innerHTML="  "+"-.-";
             document.getElementById("ftkm").innerHTML="  "+"-.-";
+            loadData();
         }
+        
     };
 
     var url = "/PHP/Validate.php?checkplate=" + nplate;

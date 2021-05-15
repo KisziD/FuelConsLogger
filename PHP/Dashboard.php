@@ -9,7 +9,7 @@ if (!isset($_SESSION)) {
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1024, initial-scale=0.3">
   <title>FCL</title>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -26,6 +26,7 @@ if (!isset($_SESSION)) {
   <script src="/Javascript/UserManagement.js"></script>
   <script src="/Javascript/carloader.js"></script>
   <script src="/Javascript/logger.js"></script>
+  <script src="/Javascript/Calculator.js"></script>
   <link rel="stylesheet" href="/CSS/main.css"/>
   <link rel="stylesheet" href="/CSS/dash.css"/>
 </head>
@@ -77,7 +78,9 @@ foreach ($_SESSION["types"] as $key => &$type) {
 
       <div id="page-content-wrapper">
          <div class="container-fluid xyz">
-            <div id="carinfo">
+         <div class="carinfo" id="alert" style="text-align: center; padding-top:0.6%; padding-bottom:0.1%; font-size:24px;"><p><b>The average consumption can only be calculated between two full tanks!</b><hr></p></div>
+         
+            <div class="carinfo">
             <table style="width: 100%">
               <tr>
               <th><div><i class="fas fa-tachometer-alt" id="cartype"></i></div></th>    <th><div><i class="fas fa-calendar-alt" id="caryear"></i></div></th>   <th><div><i class="fas fa-id-card" id="carnplate"></i></div></th>
@@ -86,7 +89,7 @@ foreach ($_SESSION["types"] as $key => &$type) {
               <th><div><i class="fas fa-gas-pump" id="carfuel"></i></div></th>   <th><div><i class="fas fa-calendar-check" id="carmot"></i></div></th>   <th><div><i class="fas fa-tachometer-alt" id="carodo"></i></div></th>
               </tr>
               <tr>
-              <th><div><i class="fas fa-tint" id="avgconsumption"></i></div></th>   <th><div><i class="fas fa-route" id="avgtravel"></i></div></th>    <th><div><i class="fas fa-dollar-sign" id="ftkm"></i></div></th>
+              <th><div><i class="fas fa-tint" id="avgconsumption" onclick="setChartToCons()"></i></div></th>   <th><div><i class="fas fa-route" id="avgtravel" onclick="setChartToTravel()"></i></div></th>    <th><div><i class="fas fa-dollar-sign" id="ftkm" onclick="setChartToPPKM()"></i></div></th>
               </tr>
             </table>
             </div>
@@ -94,6 +97,10 @@ foreach ($_SESSION["types"] as $key => &$type) {
               <form action="" class="needs-validation" novalidate>
               <table style="width: 100%">
               <tr>
+              <th style="width: 10%;">
+              <label for="fill">Are you filling the tank?</label>
+              <input type="checkbox" name="fill" id="fill">
+              </th>
               <th>
           <input type="number" name="liter" id="liter" placeholder="Litres" class="form-control" onchange="litresValidate()" onkeyup="litresValidate()" min="0">
           </th>

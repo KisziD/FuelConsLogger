@@ -71,25 +71,22 @@ function odoValidate(){
         }
     };
 
-    var url = "/PHP/Validate.php?checkodo=" + document.getElementById("carnplate").innerHTML;
+    var url = "/PHP/Validate.php?checkodo=" + document.getElementById("carnplate").innerHTML.trim();
     xhttp.open("GET", url, true);
     xhttp.send(null);
 }
 
 function addlog(){
-    console.log(litresValidate()&&pplValidate()&&odoValidity&&paidValidate());
     if (litresValidate()&&pplValidate()&&odoValidity&&paidValidate()) {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {            
-               console.log(this.responseText);
-            }
-        };
+        fill=0;
+        if(document.getElementById("fill").checked){
+            fill=1;
+        }
 
-        var url = "/PHP/Validate.php?newlog="+document.getElementById("carnplate").innerHTML+"&ftype="+document.getElementById("carfuel").innerHTML+"&litres="+litres+"&paid="+paid+"&ppl="+ppl+"&odo="+odo;
-        console.log(url);
+        var url = "/PHP/Validate.php?newlog="+document.getElementById("carnplate").innerHTML.trim()+"&ftype="+document.getElementById("carfuel").innerHTML.trim()+"&litres="+litres+"&paid="+paid+"&ppl="+ppl+"&odo="+odo+"&fill="+fill;
         xhttp.open("GET", url, true);
         xhttp.send(null);
-        window.location.href = 'dashboard'; //todo call regraph();
+        loadcar(document.getElementById("carnplate").innerHTML.trim());//window.location.href = 'dashboard'; //todo call regraph();
     }
 }

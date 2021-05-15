@@ -155,9 +155,7 @@
     }
  }
 
- #carinfo, #addrefuel{
-   margin-left: 1px;
-   margin-right: 1px;
+ .carinfo, #addrefuel{
    width: 100%;
    height: 20%;
    background-color: white;

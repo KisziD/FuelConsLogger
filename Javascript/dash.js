@@ -35,19 +35,19 @@ var ctx = document.getElementById('graph');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Dates'],
+        labels: [],
         datasets: [{
-    label: 'AVG cons.',
+    label: 'Average Fuel Consumption',
     data: [],
-    fill: false,
-    borderColor: 'rgb(75, 192, 192)',
+    fill: true,
+    borderColor: 'rgb(73, 3, 3)',
+    backgroundColor: 'rgba(79,4,4,0.4)',
     tension: 0
   }]
     },
     options: {
         scales: {
             y: {
-               max: 10,
                 beginAtZero: true
             }
         }
