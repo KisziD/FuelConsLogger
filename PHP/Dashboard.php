@@ -26,8 +26,8 @@ if (!isset($_SESSION)) {
   <script src="/Javascript/UserManagement.js"></script>
   <script src="/Javascript/carloader.js"></script>
   <script src="/Javascript/logger.js"></script>
-  <link rel="stylesheet" href="/CSS/main.css">
-  <link rel="stylesheet" href="/CSS/dash.css">
+  <link rel="stylesheet" href="/CSS/main.css"/>
+  <link rel="stylesheet" href="/CSS/dash.css"/>
 </head>
 
 <body onload="loadcar('<?php echo $_SESSION['nplates'][0]; ?>')">
