@@ -28,3 +28,8 @@
         $('.register-show').removeClass('show-log-panel');
     }
   }
+
+  $('#calcbutton').click(function(){
+    $('#avgconsumption').html('  '+(($('#liter').val()/$('#km').val())*100).toFixed(2)+" L/100Km");
+    $('#ftkm').html('  '+(($('#liter').val()/$('#km').val()).toFixed(2)*$('#ppl').val())+' Ft/Km');
+  });

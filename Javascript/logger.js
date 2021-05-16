@@ -59,7 +59,7 @@ function odoValidate(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {   
-            if(parseInt(this.responseText)<odo){
+            if(parseInt(this.responseText)<odo&&parseInt(this.responseText)!=odo){
                 odoInput.classList.remove("is-invalid");
                 odoInput.classList.add("is-valid");
                 odoValidity= true;
@@ -78,12 +78,20 @@ function odoValidate(){
 
 function addlog(){
     if (litresValidate()&&pplValidate()&&odoValidity&&paidValidate()) {
+        odoValidity= false;
         var xhttp = new XMLHttpRequest();
         fill=0;
         if(document.getElementById("fill").checked){
             fill=1;
         }
-
+        $('#liter').val('');
+        $('#liter').removeClass('is-valid');
+        $('#ppl').val('');
+        $('#ppl').removeClass('is-valid');
+        $('#paid').val('');
+        $('#paid').removeClass('is-valid');
+        $('#odo').val('');
+        $('#odo').removeClass('is-valid');
         var url = "/PHP/Validate.php?newlog="+document.getElementById("carnplate").innerHTML.trim()+"&ftype="+document.getElementById("carfuel").innerHTML.trim()+"&litres="+litres+"&paid="+paid+"&ppl="+ppl+"&odo="+odo+"&fill="+fill;
         xhttp.open("GET", url, true);
         xhttp.send(null);

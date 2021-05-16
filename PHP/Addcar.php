@@ -81,7 +81,7 @@ if (!isset($_SESSION)) {
           </span>
           <span>
             <input type="date" placeholder="MOT expiration date" id="mot" class="form-control" onchange="motValidate()">
-            <div class="invalid-feedback">The Model Year must be a valid year!</div>
+            <div class="invalid-feedback">The MOT expiration date must be a valid date!</div>
           </span>
           <input type="button" value="Add" onclick="add()">
         </form>

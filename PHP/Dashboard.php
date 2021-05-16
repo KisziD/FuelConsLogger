@@ -71,6 +71,9 @@ foreach ($_SESSION["types"] as $key => &$type) {
         echo '<li><a href="/newcar"><span class="fa-stack fa-lg pull-left"><i class="fas fa-plus-circle"></i></span>Add new car</a></li>';
     }
 
+    if($_SESSION["cars"]==0){
+      echo '<script>window.location.href = "newcar";</script>';
+    }
 ?>
             
          </ul>
@@ -107,19 +110,17 @@ foreach ($_SESSION["types"] as $key => &$type) {
           <th>
           <span>
             <input type="number" name="ppl" id="ppl" placeholder="HUF/Litre" class="form-control" onkeyup="pplValidate()" min="0">
-            <div class="invalid-feedback">The Number plate is either in use or incorrect!</div>
           </span>
           </th>
           <th>
           <span>
             <input type="number" name="paid" id="paid" placeholder="Paid" class="form-control" onkeyup="paidValidate()" min="0">
-            <div class="invalid-feedback">The Number plate is either in use or incorrect!</div>
           </span>
           </th>
           <th>
           <span>
             <input type="number" name="odo" id="odo" placeholder="Odometer" class="form-control" onkeyup="odoValidate()">
-            <div class="invalid-feedback">Fuel type must be <b>Petrol, Diesel</b> or <b>Gas</b>!</div>
+            <div class="invalid-feedback">New odometer must be larger then the last!</div>
           </span>
           </th>
           <th>
