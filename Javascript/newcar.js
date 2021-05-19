@@ -118,7 +118,8 @@ function add(){
         var url = "/PHP/Addcar.php?type="+type+"&ftype="+ftype+"&nplate="+nplate+"&myear="+year+"&mot="+mot;
         xhttp.open("GET", url, true);
         xhttp.send(null);
-        window.location.href = 'dashboard';
-        location.reload(true);
+        setTimeout(() => {
+           window.location.href = 'dashboard'; 
+        }, 100);
     }
 }
