@@ -31,7 +31,7 @@ if (!isset($_SESSION)) {
   <link rel="stylesheet" href="/CSS/dash.css"/>
 </head>
 
-<body onload="loadcar('<?php echo $_SESSION['nplates'][0]; ?>')">
+<body onload="loadcar('<?php echo $_SESSION['nplates'][0]; ?>');">
 <div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-background">
     <div class="container-fluid">

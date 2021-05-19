@@ -101,13 +101,21 @@ if (!isset($_SESSION)) {
         require_once $_SERVER['DOCUMENT_ROOT'] . "/PHP/DatabaseConn.php";
         $con = new DatabaseConn();
 
-        $query = "INSERT INTO `cars` (`rendszam`, `owner`, `type`, `fuel`,`model_year`,`mot`,`odometer`) VALUES ('" . $_GET["nplate"] . "', '" . $_SESSION["uid"] . "', '" . $_GET["type"] . "','" . $_GET["ftype"] . "','" . $_GET["myear"] . "','" . $_GET["mot"] . "', '0')";
+        $query = "SELECT odometer FROM logged_refuels where rendszam = '".$_GET["nplate"]."' ORDER BY odometer DESC";
+        $result=$con->execute($query);
+        if($result->num_rows>0){
+             $odo=$result->fetch_assoc()["odometer"];
+      }else{
+        $odo=0;
+      }
+
+        $query = "INSERT INTO `cars` (`rendszam`, `owner`, `type`, `fuel`,`model_year`,`mot`,`odometer`) VALUES ('" . $_GET["nplate"] . "', '" . $_SESSION["uid"] . "', '" . $_GET["type"] . "','" . $_GET["ftype"] . "','" . $_GET["myear"] . "','" . $_GET["mot"] . "', '".$odo."')";
         $con->execute($query);
         $_SESSION["cars"]=$_SESSION["cars"]+1;
         $_SESSION["nplates"][$_SESSION["cars"]-1] = $_GET["nplate"];
         $_SESSION["types"][$_SESSION["cars"]-1] = $_GET["type"];
         $query = "UPDATE `users` SET `num_cars` = ".$_SESSION["cars"]." WHERE `id` =".$_SESSION["uid"];
-        echo $con->execute($query);
+        $con->execute($query);
     }
 
 ?>
